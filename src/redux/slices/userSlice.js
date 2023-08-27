@@ -6,14 +6,16 @@ const initialState = {
   description: "FrontEnd Engineer | Nature Lover | Coffee Enthusiast",
   posts: [
     {
-      title: "My First Post",
-      detail:
-        "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
-    },
-    {
       title: "Another Post",
       detail:
         "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
+      timestamp: "8/27/2023, 8:05:16 AM",
+    },
+    {
+      title: "My First Post",
+      detail:
+        "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
+      timestamp: "8/27/2023, 8:05:16 AM",
     },
   ],
 };
@@ -28,7 +30,7 @@ const userSlice = createSlice({
       state.description = action.payload.description;
     },
     addPost: (state, action) => {
-      state.posts = [...state.posts, action.payload];
+      state.posts = [action.payload, ...state.posts];
     },
   },
 });

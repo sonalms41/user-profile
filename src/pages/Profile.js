@@ -26,7 +26,13 @@ function Profile() {
 
   const handleAddPost = (e) => {
     e.preventDefault();
-    dispatch(addPost({ title: postTitle, detail: postDetail }));
+    dispatch(
+      addPost({
+        title: postTitle,
+        detail: postDetail,
+        timestamp: new Date().toLocaleString(),
+      })
+    );
     setPostTitle("");
     setPostDetail("");
   };
@@ -40,7 +46,7 @@ function Profile() {
       justifyContent="center"
       alignItems="center"
     >
-      <Box w="70%" bg="white" p={6} borderRadius="lg" shadow="md">
+      <Box w="80%" bg="white" p={6} borderRadius="lg" shadow="md">
         <Flex>
           <Avatar size="xl" src={"https://placekitten.com/100/100"} mb={4} />
           <Box mx="auto" alignSelf="center">
@@ -104,6 +110,9 @@ function Profile() {
                 </Text>
                 <Text fontSize="md" color="gray.600" mt={1}>
                   {post.detail}
+                </Text>
+                <Text fontSize="sm" color="gray.400" mt={2}>
+                  {post.timestamp}
                 </Text>
               </Box>
             ))}
